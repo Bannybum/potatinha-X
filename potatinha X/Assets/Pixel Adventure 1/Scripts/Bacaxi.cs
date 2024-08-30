@@ -7,7 +7,8 @@ public class Bacaxi : MonoBehaviour
     private SpriteRenderer sr;
     private CircleCollider2D cc;
 
-    public GameObject Explode;
+    public GameObject Collected;
+    public int Score;
     
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,10 @@ public class Bacaxi : MonoBehaviour
         {
             sr.enabled = false;
             cc.enabled = false;
-            Explode.SetActive(true);
+            Collected.SetActive(true);
+
+            GameController.instance.ScoreTotal += Score;
+            GameController.instance.UpdateScoreTXT();
 
             Destroy(gameObject, 0.3f);
         }

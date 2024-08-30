@@ -81,6 +81,12 @@ public class Player : MonoBehaviour
             taPulando = false;
             anim.SetBool("Pulo", false);
         }
+
+        if (colisao.gameObject.tag == "Espinho")
+        {
+            GameController.instance.MostraGameOver();
+            Destroy(gameObject);
+        }
     }
 
     void OnCollisionExit2D(Collision2D colisao)
